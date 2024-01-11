@@ -1,0 +1,45 @@
+body {
+    background-image: url('/img/fondo.jpg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta correcta de tu imagen */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; /* Color de fondo azul claro */
+}
+form {
+    max-width: 200px;
+    background-color: #008080; /* Color de fondo azul oscuro */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+button{
+    background-color: rgb(255, 247, 0);
+}
+h1{
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2{
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+label{
+    color: #f0f8ff;
+}
+tr{
+    background-color: #f0f8ff;
+}
+table{
+    background-color: #f0f8ff;
+}

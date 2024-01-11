@@ -1,0 +1,38 @@
+body {
+    background-image: url('/img/fondo.jpg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta correcta de tu imagen */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; /* Color de fondo azul claro */
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 15px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: #163be0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del texto del contenedor padre (button) */
+}
+
+button + button {
+    margin-top: 20px; /* Añade margen superior al segundo botón */
+}
