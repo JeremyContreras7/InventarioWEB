@@ -86,7 +86,7 @@ $result = mysqli_num_rows($query);
                     <td><?php echo $data['nombre']; ?></td>
                     <td id="cantidad_<?php echo $data['id']; ?>"><?php echo $data['cantidad']; ?></td>
                     <td><a href='agregar.php?id=<?php echo $data['id']; ?>'>Sumar</a></td>
-                    <td><a href='Vista/Descuento.php?id=<?php echo $data['id']; ?>'>Restar</a></td>
+                    <td><a href='Descuento.php?id=<?php echo $data['id']; ?>'>Restar</a></td>
                     <td><a href='editar.php?id=<?php echo $data['id']; ?>'>Editar</a></td>
                     <td><a href='eliminar.php?id=<?php echo $data['id']; ?>'>Eliminar</a></td>
                 </tr>

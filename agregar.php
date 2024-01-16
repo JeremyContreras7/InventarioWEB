@@ -84,6 +84,7 @@ if (isset($_GET['id'])) {
 
             <button type="submit">Sumar Cantidad</button>
         </form>
+        <button><a href="Vista/IngresarProductos.php"></a>Volver</button>
     <?php else: ?>
         <p>No se ha seleccionado un producto.</p>
     <?php endif; ?>

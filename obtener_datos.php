@@ -12,4 +12,5 @@ if (isset($_GET['id'])) {
     echo "Cantidad: " . $selected_data['cantidad'] . "<br>";
     echo "Imagen: <br><img height='100px' src='data:image/jpeg;base64," . base64_encode($selected_data['imagen']) . "' alt='Producto'>";
 }
+
 ?>
