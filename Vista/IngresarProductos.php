@@ -3,7 +3,16 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // Incluir el archivo de conexión
-include('conexion.php');
+$konexta = mysqli_connect("localhost", "root", "", "imagen");
+
+if ($konexta->connect_errno) {
+    echo "No hay conexión: (" . $konexta->connect_errno . ") " . $konexta->connect_error;
+}
+
+// Verificar la conexión
+if ($konexta->connect_error) {
+    die("Error de conexión: " . $konexta->connect_error);
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['nombre']) || empty($_POST['cantidad'])) {
@@ -13,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cantidad = $_POST['cantidad'];
         $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
         $query = "INSERT INTO productos (nombre, cantidad, imagen) VALUES ('$nombre','$cantidad','$imagen')";
-        $resultado = $conn->query($query);
+        $resultado = $konexta->query($query);
 
         if ($resultado) {
             echo "Se ha insertado los datos";
@@ -24,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Consultar los productos registrados
-$query = mysqli_query($conn, "SELECT * FROM productos");
-$result = mysqli_num_rows($query);
+$result = $konexta->query("SELECT * FROM productos");
+$num_rows = $result->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -60,43 +69,41 @@ $result = mysqli_num_rows($query);
 
         <button type="submit">Guardar Datos</button>
     </form>
+    
 
-    <!-- ... (código anterior) ... -->
-
-<h2>Productos Registrados</h2>
-<table border="1">
-    <thead>
-        <tr>
-            <th>Foto</th>
-            <th>Nombre Producto</th>
-            <th>Cantidad</th>
-            <th>Sumar</th>
-            <th>Restar</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        if ($result > 0) {
-            while ($data = mysqli_fetch_array($query)) {
-                ?>
-                <tr>
-                    <td><img height="100px" src="data:image/jpeg;base64,<?php echo base64_encode($data['imagen']); ?>" alt="Producto"></td>
-                    <td><?php echo $data['nombre']; ?></td>
-                    <td id="cantidad_<?php echo $data['id']; ?>"><?php echo $data['cantidad']; ?></td>
-                    <td><a href='agregar.php?id=<?php echo $data['id']; ?>'>Sumar</a></td>
-                    <td><a href='Descuento.php?id=<?php echo $data['id']; ?>'>Restar</a></td>
-                    <td><a href='editar.php?id=<?php echo $data['id']; ?>'>Editar</a></td>
-                    <td><a href='eliminar.php?id=<?php echo $data['id']; ?>'>Eliminar</a></td>
-                </tr>
-                <?php
+    <h2>Productos Registrados</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nombre Producto</th>
+                <th>Cantidad</th>
+                <th>Sumar</th>
+                <th>Restar</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($num_rows > 0) {
+                while ($data = $result->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td><img height="100px" src="data:image/jpeg;base64,<?php echo base64_encode($data['imagen']); ?>" alt="Producto"></td>
+                        <td><?php echo $data['nombre']; ?></td>
+                        <td id="cantidad_<?php echo $data['id']; ?>"><?php echo $data['cantidad']; ?></td>
+                        <td><a href='agregar.php?id=<?php echo $data['id']; ?>'>Agregar Stock</a></td>
+                        <td><a href='Descuento.php?id=<?php echo $data['id']; ?>'>Sacar Stock</a></td>
+                        <td><a href='editar.php?id=<?php echo $data['id']; ?>'>Editar</a></td>
+                        <td><a href='eliminar.php?id=<?php echo $data['id']; ?>'>Eliminar</a></td>
+                    </tr>
+                    <?php
+                }
             }
-        }
-        ?>
-    </tbody>
-</table>
-
+            ?>
+        </tbody>
+    </table>
 
     <script>
         function mostrarVistaPrevia() {

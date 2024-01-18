@@ -1,27 +1,51 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/stylelogin.css">
-    <link rel="icon" href="/img/logo.png">
-    <title>Iniciar Sesión</title>
-</head>
-<body>
-    <img src="img/logo1.png" alt="Logo" style="width: 150px; height: auto;">
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Inico Sesion</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/stylelogin.css" />
+		<script type="text/javascript" src="jv.js"></script>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+			<!-- Head -->
+			<center>
+				<br>
+				<br>
+				<img src="img/logo1.png" alt="Logo" style="width: 150px; height: auto;">
+				
+			</center>
 
-    <form>
-        <h2 style="color: #fff;">Iniciar Sesión</h2>
-        <label for="usuario" style="color: #fff;">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" required>
-        <label for="contrasena" style="color: #fff;">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
+			<!-- Navegador -->
+				
+                <center>
+               <!--Formulario para el login -->
+        <form id="frmlogin" class="grupo-entradas" method="POST" action="validar.php">
+		<input type="text" placeholder="&#129492 &#128105 Ingrese Nombre de Usuario" name="txtnombre" required>
+        <input type="email" class="cajaentradatexto" placeholder="&#128273; Ingrese Correo" name="txtusuario" required>
+        <input type="password" class="cajaentradatexto" placeholder="&#128274; Ingresar contraseña" name="txtpassword" id="txtpassword" required><input type="checkbox" onclick="verpassword()"> Mostrar contraseña
+		<select name="rol">
+				<option value="0" style="display:none;"><label>Seleccionar rol</label></option>
+				<option value="USUARIO">USUARIO</option>
+				<option value="ADMIN">ADMIN</option>
+				</option>
+				<option value="GESTION">GESTION</option>
+				</option>
+</select>
+        <button type="submit" class="botonenviar" name="btnloginx">Iniciar sesión</button>
 
-        <button type="submit">Iniciar Sesión</button>
-        <p style="color: #fff;">¿No tienes una cuenta? <a href="registro.html">Registrarse</a></p>
-    </form>
+        </form>
+        
+                </center>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-    
-    <p style="color: #000000;">© Jeremy Contreras Nicolas Cisternas 2024</p>
-
-</body>
+	</body>
 </html>

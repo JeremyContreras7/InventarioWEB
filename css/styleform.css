@@ -1,45 +1,77 @@
 body {
-    background-image: url('/img/fondo.jpg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta correcta de tu imagen */
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    background-color: #f4f4f4;
     margin: 0;
-    background-color: #f0f8ff; /* Color de fondo azul claro */
+    padding: 0;
 }
-form {
-    max-width: 200px;
-    background-color: #008080; /* Color de fondo azul oscuro */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    margin: 20px auto;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
-button{
-    background-color: rgb(255, 247, 0);
+
+h1, h2 {
+    color: #333;
 }
-h1{
-    background-color: #ffffff;
-    text-align: center;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
-h2{
-    background-color: #ffffff;
-    text-align: center;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+label {
+    display: block;
+    margin-bottom: 8px;
 }
-label{
-    color: #f0f8ff;
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
 }
-tr{
-    background-color: #f0f8ff;
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
-table{
-    background-color: #f0f8ff;
+
+button:hover {
+    background-color: #45a049;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Add your own additional styles as needed */

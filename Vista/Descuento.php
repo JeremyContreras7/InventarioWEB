@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styleform.css">
     <link rel="icon" href="/img/logo.png">
-    <title>Registro de Venta</title>
+    <title>Registro de Stock</title>
     <style>
         /* Agrega estilos CSS según sea necesario */
     </style>
 </head>
 
 <body>
-    <h2>Registro de Venta</h2>
+    <h2>Registro de Stock</h2>
 
     <form method="POST" action="procesar_venta.php">
         <label for="producto_id">ID del Producto:</label>
@@ -23,5 +23,6 @@
 
         <button type="submit">Registrar Venta</button>
     </form>
+    <a href="IngresarProductos.php"><button type="button">Volver</button></a>
 </body>
 </html>

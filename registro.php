@@ -1,33 +1,39 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styleregistro.css">
-    <link rel="icon" href="/img/logo.png">
-    <title>Registro</title>
-</head>
-<body>
-    <img src="img/logo1.png" alt="Logo" style="width: 150px; height: auto;">
-    <form>
-        <h2 style="color: #fff;">Registro</h2>
-        <label for="nombre" style="color: #fff;">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Registro</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/stylelogin.css" />
+		<script src="funciones.js"></script>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+			<!-- Head -->
+			<center>
+            <img src="img/logo1.png" alt="Logo" style="width: 150px; height: auto;">
+			</center>
 
-        <label for="email" style="color: #fff;">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required>
+			
+                <center>
+                <form action="registrar.php" method="post">
 
-        <label for="contrasena" style="color: #fff;">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
+			    <p>Correo <input type="email" name="xapel" id="xapel" placeholder="Ingrese correo" required></p>
+			    <p>Password <input type="password" name="xclv" id="xclv" placeholder="Ingrese su clave" required maxlength="8" minlength="7"></p>
 
-        <label for="seleccionar" style="color: #fff;">Seleccionar:</label>
-        <select id="seleccionar" name="seleccionar">
-            <option value="opcion1">Usuario</option>
-            <option value="opcion2">Registro</option>
-        </select>
+			    <input type="submit" value="registrar">	
+				
 
-        <button type="submit">Registrarse</button>
-    </form>
-    <p>© Jeremy Contreras Nicolas Cisternas 2024</p>
+		        </form>
+                </center>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-</body>
+	</body>
 </html>

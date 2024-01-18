@@ -1,4 +1,9 @@
-<?php
+<?php $konexta =mysqli_connect("localhost", "root", "", "imagen"); 
+
+if($konexta->connect_errno)
+	{
+		echo "No hay conexión: (" . $konexta->connect_errno . ") " . $konexta->connect_error;
+	}
 
 $servername = "localhost";
 $username = "root";

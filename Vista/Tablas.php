@@ -3,11 +3,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // Incluir el archivo de conexión
-include('conexion.php');
+$konexta = mysqli_connect("localhost", "root", "", "imagen");
 
 // Consultar los productos registrados
-$query = mysqli_query($conn, "SELECT * FROM productos");
-$result = mysqli_num_rows($query);
+$result = $konexta->query("SELECT * FROM productos");
+$num_rows = $result->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -40,13 +40,15 @@ $result = mysqli_num_rows($query);
         </thead>
         <tbody>
             <?php
-            if ($result > 0) {
-                while ($data = mysqli_fetch_array($query)) {
+            if ($num_rows > 0) {
+                while ($data = $result->fetch_assoc()) {
                     ?>
                     <tr>
                         <td><img height="100px" src="data:image/jpeg;base64,<?php echo base64_encode($data['imagen']); ?>" alt="Producto"></td>
                         <td><?php echo $data['nombre']; ?></td>
                         <td><?php echo $data['cantidad']; ?></td>
+                        <td><a href='editar.php?id=<?php echo $data['id']; ?>'>Editar</a></td>
+                        <td><a href='eliminar.php?id=<?php echo $data['id']; ?>'>Eliminar</a></td>
                     </tr>
                     <?php
                 }

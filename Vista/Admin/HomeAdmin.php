@@ -11,8 +11,14 @@
     <img src="/img/logo1.png" alt="Logo" style="width: 150px; height: auto;">
     <form>
         <button><a href="../IngresarProductos.php">Realizar Registro</a></button>
+        
         <button><a href="../Tablas.php">Ver Tablas</a></button>
+
+        <button><a href="../../registrar.php">Registrar Usuario </a></button>
+
+
         <button><a href="#">Soporte </a></button>
+
         <button><a href="#">Ayuda </a></button>
     </form>
     

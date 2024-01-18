@@ -1,6 +1,5 @@
 <?php
-include('conexion.php');
-
+$konexta = mysqli_connect("localhost", "root", "", "imagen");
 // Variables para almacenar los mensajes
 $mensaje = '';
 $mensajeClase = '';
@@ -13,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Sumar la cantidad proporcionada a la columna cantidad en la tabla productos
         $updateQuery = "UPDATE productos SET cantidad = cantidad + $cantidadASumar WHERE id = $productoId";
-        $conn->query($updateQuery);
+        $konexta->query($updateQuery);
 
         // Obtener la información actualizada del producto
         $selectQuery = "SELECT * FROM productos WHERE id = $productoId";
-        $result = $conn->query($selectQuery);
+        $result = $konexta->query($selectQuery);
         $producto = $result->fetch_assoc();
 
         // Mensaje de éxito
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_GET['id'])) {
     $productoId = $_GET['id'];
     $selectQuery = "SELECT * FROM productos WHERE id = $productoId";
-    $result = $conn->query($selectQuery);
+    $result = $konexta->query($selectQuery);
     $producto = $result->fetch_assoc();
 }
 ?>
@@ -46,7 +45,7 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styleform.css">
     <link rel="icon" href="/img/logo.png">
-    <title>Sumar Cantidad</title>
+    <title>Agregar Stock</title>
     <style>
         .success {
             background-color: white;
@@ -60,7 +59,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <h2>Sumar Cantidad</h2>
+    <h2>Agregar Stock</h2>
     
     <?php if(isset($mensaje) && !empty($mensaje)): ?>
         <p class="<?php echo $mensajeClase; ?>"><?php echo $mensaje; ?></p>
@@ -81,10 +80,9 @@ if (isset($_GET['id'])) {
 
             <label for="cantidadASumar">Cantidad a Sumar:</label>
             <input type="number" id="cantidadASumar" name="cantidadASumar" required><br><br>
-
             <button type="submit">Sumar Cantidad</button>
         </form>
-        <button><a href="Vista/IngresarProductos.php"></a>Volver</button>
+        <button><a href="IngresarProductos.php"></a>Volver</button>
     <?php else: ?>
         <p>No se ha seleccionado un producto.</p>
     <?php endif; ?>
