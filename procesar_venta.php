@@ -13,7 +13,7 @@ if ($konexta->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener datos del formulario
-    $productoId = $_POST['producto_id'];
+    $productoId = $_POST['id'];
     $cantidadVendida = $_POST['cantidad_vendida'];
 
     // Consultar la cantidad actual del producto
@@ -35,10 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Registrar la venta en el historial de ventas
             $fechaVenta = date('Y-m-d H:i:s');
-            $registrarVentaQuery = "INSERT INTO historialventa (producto_id, cantidad_vendida, fecha) VALUES ($productoId, $cantidadVendida, '$fechaVenta')";
-            $konexta->query($registrarVentaQuery);
-
-            echo "Venta registrada correctamente. Cantidad actualizada: $nuevaCantidad";
+            $registrarVentaQuery = "INSERT INTO historialventa (producto_id, cantidad_vendida, fecha_venta) VALUES ($productoId, $cantidadVendida, '$fechaVenta')";
+            
+            if ($konexta->query($registrarVentaQuery)) {
+                echo "Venta registrada correctamente. Cantidad actualizada: $nuevaCantidad";
+            } else {
+                echo "Error al registrar la venta: " . $konexta->error;
+            }
 
         } else {
             echo "No hay suficiente cantidad disponible para la venta.";

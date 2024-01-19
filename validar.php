@@ -68,4 +68,46 @@ else
 }
 
 } 
+
+
+$nombre = $_POST["nombre"];
+$cantidad = $_POST["cantidad"];
+$categoria = $_POST["categoria"];
+
+// Verificar si se ha subido un archivo
+if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {
+    // Obtener información de la imagen
+    $imagen = addslashes(file_get_contents($_FILES["imagen"]["tmp_name"]));
+
+    // Conectar a la base de datos
+    $konexta = mysqli_connect("localhost", "root", "", "imagen");
+
+    // Verificar la conexión
+    if ($konexta->connect_error) {
+        die("Error de conexión: " . $konexta->connect_error);
+    }
+
+    // Validar si el producto ya existe
+    $queryValidarProducto = mysqli_query($konexta, "SELECT * FROM productos WHERE nombre = '$nombre'");
+    $filasProducto = mysqli_num_rows($queryValidarProducto);
+
+    if ($filasProducto > 0) {
+        // El producto ya existe, mostrar mensaje de error o redireccionar a una página de error
+        echo "<script>alert('El producto ya está registrado.'); window.location='/Vista/IngresarProductos.php';</script>";
+    } else {
+        // El producto no existe, proceder con la inserción
+        $queryInsertarProducto = "INSERT INTO productos (nombre, cantidad, imagen, categoria) VALUES ('$nombre', '$cantidad', '$imagen', '$categoria')";
+        if (mysqli_query($konexta, $queryInsertarProducto)) {
+            echo "<script>alert('Producto registrado correctamente.'); window.location='/Vista/IngresarProductos.php';</script>";
+        } else {
+            echo "<script>alert('Error al registrar el producto.'); window.location='/Vista/IngresarProductos.php';</script>";
+        }
+    }
+} else {
+    // Si no se subió un archivo, mostrar mensaje de error
+    echo "<script>alert('Error: No se ha seleccionado una imagen.'); window.location='/Vista/IngresarProductos.php';</script>";
+}
+
+
+
 ?>

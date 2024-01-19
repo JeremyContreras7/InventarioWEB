@@ -20,8 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $nombre = $_POST['nombre'];
         $cantidad = $_POST['cantidad'];
+        $categoria = $_POST['categoria'];
         $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
-        $query = "INSERT INTO productos (nombre, cantidad, imagen) VALUES ('$nombre','$cantidad','$imagen')";
+        $query = "INSERT INTO productos (nombre, cantidad, imagen,categoria) VALUES ('$nombre','$cantidad','$imagen','$categoria')";
         $resultado = $konexta->query($query);
 
         if ($resultado) {
@@ -55,13 +56,38 @@ $num_rows = $result->num_rows;
 
 <body>
     <h1>Registrar Producto</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" action="../validar.php">
         <label for="nombre">Nombre del Producto:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
         <label for="cantidad">Cantidad:</label><br>
         <input type="number" id="cantidad" name="cantidad" required><br><br>
-
+        <select name="categoria" required>
+					<option disabled selected value=""><label>Seleccionar Categoria</label></option>
+                    <option disabled selected value=""><label>TECNOLLOGIA</label></option>
+					<option value="COMPUTADORES">COMPUTADORES</option>
+					<option value="IMPRESORAS">IMPRESORAS</option>
+                    <option value="ESCANER">ESCANER</option>
+					<option value="PERIFERICOS">PERIFERICOS</option>
+                    <option value="CABLEADO">CABLEADO</option>
+					<option value="PROYECTORES">PROYECTORES</option>
+                    <option value="RED">DISPOSITIVO DE RED</option>
+                    <option disabled selected value=""><label>MATERIAL DE OFICINA</label></option>
+					<option value="ESCRITURA">UTESILLIOS DE ESCRITURA</option>
+                    <option value="LIBROS">LIBROS Y CUADERNOS</option>
+					<option value="SUMINISTROS">SUMINISTROS DE OFICINA</option>
+                    <option value="MATERIAL">MATERIAL DE OFICINA</option>
+					<option value="RESMAS">RESMAS</option>
+                    <option disabled selected value=""><label>MOBILIARIO DE OFICINA</label></option>
+                    <option value="ESCRITORIO">ESCRITORIO</option>
+					<option value="SILLAS">SILLAS</option>
+                    <option value="MUEBLES">MUEBLES</option>
+                    <option disabled selected value=""><label>LIMPIEZA</label></option>
+                    <option value="BOLSAS">BOLSAS DE BASURA</option>
+					<option value="TOALLAS">TOALLAS DE PAPEL Y PAÑUELOS</option>
+                    <option value="LIMPIEZA">PRODUCTO DE LIMPIEZA</option>
+                    <option value="ESCOBA">ESCOBA Y PALAS</option>		
+		</select>
         <label for="imagen">Subir Foto:</label><br>
         <input type="file" id="imagen" name="imagen" onchange="mostrarVistaPrevia()"><br><br>
 
