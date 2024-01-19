@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $registrarVentaQuery = "INSERT INTO historialventa (producto_id, cantidad_vendida, fecha_venta) VALUES ($productoId, $cantidadVendida, '$fechaVenta')";
             
             if ($konexta->query($registrarVentaQuery)) {
-                echo "Venta registrada correctamente. Cantidad actualizada: $nuevaCantidad";
+                echo "<script>alert('se ha descontado  correctamente. Cantidad actualizada: $nuevaCantidad'); window.location='/Vista/IngresarProductos.php';</script>";
+               
             } else {
                 echo "Error al registrar la venta: " . $konexta->error;
             }

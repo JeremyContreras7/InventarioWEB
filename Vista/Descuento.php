@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styleform.css">
     <link rel="icon" href="/img/logo.png">
-    <title>Registro de Stock</title>
-    <style>
-        /* Agrega estilos CSS según sea necesario */
-    </style>
+    <title>Descuento de Stock</title>
 </head>
-
 <body>
-    <h2>Registro de Stock</h2>
-
+    <h2>Descuento de Stock</h2>
     <?php
     $konexta = mysqli_connect("localhost", "root", "", "imagen");
 
@@ -34,24 +29,246 @@
                 ?>
                 <form method="POST" action="../procesar_venta.php" >
                     <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
-
                     <label for="cantidad_vendida">Cantidad Vendida:</label>
                     <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
-
                     <button type="submit">Registrar Venta</button>
                 </form>
+            
             <?php
-                
-                
-            } else {
-                // Si no hay bajo stock, mostrar el formulario
+            
+            } 
+            
+            
+            if ($producto['categoria'] == "COMPUTADORES" && $producto['cantidad'] < 20) {
+                echo "<script>alert('Error: Hay bajo Stock.');</script>";
                 ?>
                 <form method="POST" action="../procesar_venta.php" >
                     <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
-
                     <label for="cantidad_vendida">Cantidad Vendida:</label>
                     <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
-
+                    <button type="submit">Registrar Venta</button>
+                </form>
+                <?php
+                }
+            
+            if ($producto['categoria'] == "IMPRESORAS" && $producto['cantidad'] < 20) {
+                echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                ?>
+                <form method="POST" action="../procesar_venta.php" >
+                    <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                    <label for="cantidad_vendida">Cantidad Vendida:</label>
+                    <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                    <button type="submit">Registrar Venta</button>
+                </form>
+                
+                <?php
+                }
+                if ($producto['categoria'] == "ESCANER" && $producto['cantidad'] < 20) {
+                    echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                    ?>
+                    <form method="POST" action="../procesar_venta.php" >
+                        <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                        <label for="cantidad_vendida">Cantidad Vendida:</label>
+                        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                        <button type="submit">Registrar Venta</button>
+                    </form>
+                
+                <?php
+                
+                } 
+                
+                if ($producto['categoria'] == "PERIFERICOS" && $producto['cantidad'] < 20) {
+                    echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                    ?>
+                    <form method="POST" action="../procesar_venta.php" >
+                        <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                        <label for="cantidad_vendida">Cantidad Vendida:</label>
+                        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                        <button type="submit">Registrar Venta</button>
+                    </form>
+                    <?php
+                    }
+                
+                if ($producto['categoria'] == "CABLEADO" && $producto['cantidad'] < 20) {
+                    echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                    ?>
+                    <form method="POST" action="../procesar_venta.php" >
+                        <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                        <label for="cantidad_vendida">Cantidad Vendida:</label>
+                        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                        <button type="submit">Registrar Venta</button>
+                    </form>
+                    
+                    <?php
+                }
+                if ($producto['categoria'] == "PROYECTORES" && $producto['cantidad'] < 20) {
+                        echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                        ?>
+                        <form method="POST" action="../procesar_venta.php" >
+                            <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                            <label for="cantidad_vendida">Cantidad Vendida:</label>
+                            <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                            <button type="submit">Registrar Venta</button>
+                        </form>
+                    
+                    <?php
+                    
+                    } 
+                  
+                    if ($producto['categoria'] == "RED" && $producto['cantidad'] < 20) {
+                        echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                        ?>
+                        <form method="POST" action="../procesar_venta.php" >
+                            <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                            <label for="cantidad_vendida">Cantidad Vendida:</label>
+                            <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                            <button type="submit">Registrar Venta</button>
+                        </form>
+                        <?php
+                        }
+                    
+                    if ($producto['categoria'] == "ESCRITURA" && $producto['cantidad'] < 20) {
+                        echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                        ?>
+                        <form method="POST" action="../procesar_venta.php" >
+                            <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                            <label for="cantidad_vendida">Cantidad Vendida:</label>
+                            <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                            <button type="submit">Registrar Venta</button>
+                        </form>
+                        
+                        <?php
+                        }
+                        if ($producto['categoria'] == "LIBROS" && $producto['cantidad'] < 20) {
+                            echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                            ?>
+                            <form method="POST" action="../procesar_venta.php" >
+                                <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                                <label for="cantidad_vendida">Cantidad Vendida:</label>
+                                <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                                <button type="submit">Registrar Venta</button>
+                            </form>
+                        
+                        <?php
+                        
+                        } 
+                        
+                        if ($producto['categoria'] == "SUMINISTROS" && $producto['cantidad'] < 20) {
+                            echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                            ?>
+                            <form method="POST" action="../procesar_venta.php" >
+                                <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                                <label for="cantidad_vendida">Cantidad Vendida:</label>
+                                <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                                <button type="submit">Registrar Venta</button>
+                            </form>
+                            <?php
+                            }
+                        
+                        if ($producto['categoria'] == "MATERIAL" && $producto['cantidad'] < 20) {
+                            echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                            ?>
+                            <form method="POST" action="../procesar_venta.php" >
+                                <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                                <label for="cantidad_vendida">Cantidad Vendida:</label>
+                                <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                                <button type="submit">Registrar Venta</button>
+                            </form>
+                            
+                            <?php
+                }
+                if ($producto['categoria'] == "ESCRITORIO" && $producto['cantidad'] < 20) {
+                    echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                    ?>
+                    <form method="POST" action="../procesar_venta.php" >
+                        <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                        <label for="cantidad_vendida">Cantidad Vendida:</label>
+                        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                        <button type="submit">Registrar Venta</button>
+                    </form>
+                
+                <?php
+                
+                } 
+                if ($producto['categoria'] == "SILLAS" && $producto['cantidad'] < 20) {
+                    echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                    ?>
+                    <form method="POST" action="../procesar_venta.php" >
+                        <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                        <label for="cantidad_vendida">Cantidad Vendida:</label>
+                        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                        <button type="submit">Registrar Venta</button>
+                    </form>
+                    <?php
+                    }
+                
+                if ($producto['categoria'] == "MUEBLES" && $producto['cantidad'] < 20) {
+                    echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                    ?>
+                    <form method="POST" action="../procesar_venta.php" >
+                        <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                        <label for="cantidad_vendida">Cantidad Vendida:</label>
+                        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                        <button type="submit">Registrar Venta</button>
+                    </form>
+                    
+                    <?php
+                    }
+                    if ($producto['categoria'] == "BOLSAS" && $producto['cantidad'] < 20) {
+                        echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                        ?>
+                        <form method="POST" action="../procesar_venta.php" >
+                            <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                            <label for="cantidad_vendida">Cantidad Vendida:</label>
+                            <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                            <button type="submit">Registrar Venta</button>
+                        </form>
+                    
+                    <?php
+                    
+                    } 
+                    
+                    if ($producto['categoria'] == "TOALLAS" && $producto['cantidad'] < 20) {
+                        echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                        ?>
+                        <form method="POST" action="../procesar_venta.php" >
+                            <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                            <label for="cantidad_vendida">Cantidad Vendida:</label>
+                            <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                            <button type="submit">Registrar Venta</button>
+                        </form>
+                        <?php
+                        }
+                    
+                    if ($producto['categoria'] == "LIMPIEZA" && $producto['cantidad'] < 20) {
+                        echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                        ?>
+                        <form method="POST" action="../procesar_venta.php" >
+                            <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                            <label for="cantidad_vendida">Cantidad Vendida:</label>
+                            <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                            <button type="submit">Registrar Venta</button>
+                        </form>
+                        
+                        <?php
+            }
+            if ($producto['categoria'] == "ESCOBA" && $producto['cantidad'] < 20) {
+                echo "<script>alert('Error: Hay bajo Stock.');</script>";
+                ?>
+                <form method="POST" action="../procesar_venta.php" >
+                    <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                    <label for="cantidad_vendida">Cantidad Vendida:</label>
+                    <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+                    <button type="submit">Registrar Venta</button>
+                </form>
+                
+                <?php
+        }else {
+                ?>
+                <form method="POST" action="../procesar_venta.php" >
+                    <input type="hidden" name="id" value="<?php echo $productoId; ?>"><br><br>
+                    <label for="cantidad_vendida">Cantidad Vendida:</label>
+                    <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
                     <button type="submit">Registrar Venta</button>
                 </form>
                 <?php
@@ -82,7 +299,7 @@
             echo "<td>" . $venta['id'] . "</td>";
             echo "<td>" . $venta['producto_id'] . "</td>";
             echo "<td>" . $venta['cantidad_vendida'] . "</td>";
-            echo "<td>" . $venta['fecha'] . "</td>";
+            echo "<td>" . $venta['fecha_venta'] . "</td>";
             echo "</tr>";
         }
         echo "</tbody></table>";

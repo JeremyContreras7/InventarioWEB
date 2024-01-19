@@ -64,7 +64,7 @@ $num_rows = $result->num_rows;
         <input type="number" id="cantidad" name="cantidad" required><br><br>
         <select name="categoria" required>
 					<option disabled selected value=""><label>Seleccionar Categoria</label></option>
-                    <option disabled selected value=""><label>TECNOLLOGIA</label></option>
+                    <option disabled selected value=""><label>TECNOLOGIA</label></option>
 					<option value="COMPUTADORES">COMPUTADORES</option>
 					<option value="IMPRESORAS">IMPRESORAS</option>
                     <option value="ESCANER">ESCANER</option>
