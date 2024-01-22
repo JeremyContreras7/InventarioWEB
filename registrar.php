@@ -38,7 +38,7 @@
 				<option value="GESTION">GESTION</option>
 				</option>
 				</select>
-				<input type="checkbox" class="checkboxvai" required><a href="Ayuda.html">He leído y acepto los términos y condiciones de uso.</a>
+				<input type="checkbox" class="checkboxvai" required><a href="ayuda.php">He leído y acepto los términos y condiciones de uso.</a>
                 <button type="submit" type="button" name="btnregistrarx">Registrar</button>
         </form>
                 </center>

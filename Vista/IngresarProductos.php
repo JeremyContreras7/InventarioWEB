@@ -94,6 +94,7 @@ $num_rows = $result->num_rows;
         <img id="imagen-preview" src="#" alt="Vista Previa de la Foto" style="display: none;"><br><br>
 
         <button type="submit">Guardar Datos</button>
+        <button onclick="history.back()">Volver</button>
     </form>
     
 
