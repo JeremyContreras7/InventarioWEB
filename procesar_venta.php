@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener datos del formulario
     $productoId = $_POST['id'];
     $cantidadVendida = $_POST['cantidad_vendida'];
+    $usuarionombre = $_POST['nombre_usuario'];
 
     // Consultar la cantidad actual del producto
     $consultaCantidad = "SELECT cantidad FROM productos WHERE id = $productoId";
@@ -35,11 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Registrar la venta en el historial de ventas
             $fechaVenta = date('Y-m-d H:i:s');
-            $registrarVentaQuery = "INSERT INTO historialventa (producto_id, cantidad_vendida, fecha_venta) VALUES ($productoId, $cantidadVendida, '$fechaVenta')";
-            
+            $registrarVentaQuery = "INSERT INTO historialventa (producto_id, cantidad_vendida, fecha_venta, nombre_usuario) VALUES ($productoId, $cantidadVendida, '$fechaVenta', '$usuarionombre')";
+
             if ($konexta->query($registrarVentaQuery)) {
-                echo "<script>alert('se ha descontado  correctamente. Cantidad actualizada: $nuevaCantidad'); window.location='/Vista/IngresarProductos.php';</script>";
-               
+                echo "<script>alert('Se ha descontado correctamente. Cantidad actualizada: $nuevaCantidad'); window.location='/Vista/IngresarProductos.php';</script>";
             } else {
                 echo "Error al registrar la venta: " . $konexta->error;
             }
