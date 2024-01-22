@@ -40,6 +40,8 @@
 				</select>
 				<input type="checkbox" class="checkboxvai" required><a href="ayuda.php">He leído y acepto los términos y condiciones de uso.</a>
                 <button type="submit" type="button" name="btnregistrarx">Registrar</button>
+				<button><a href="Vista/Admin/HomeAdmin.php"></a>Volver</button>
+
         </form>
                 </center>
 		<!-- Scripts -->

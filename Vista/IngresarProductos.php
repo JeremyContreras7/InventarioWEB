@@ -21,8 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombre = $_POST['nombre'];
         $cantidad = $_POST['cantidad'];
         $categoria = $_POST['categoria'];
+        $codigo = $_POST['codigo'];
         $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
-        $query = "INSERT INTO productos (nombre, cantidad, imagen,categoria) VALUES ('$nombre','$cantidad','$imagen','$categoria')";
+        $query = "INSERT INTO productos (nombre, codigo, cantidad, imagen,categoria) VALUES ('$nombre','$codigo','$cantidad','$imagen','$categoria')";
         $resultado = $konexta->query($query);
 
         if ($resultado) {
@@ -59,7 +60,8 @@ $num_rows = $result->num_rows;
     <form method="POST" enctype="multipart/form-data" action="../validar.php">
         <label for="nombre">Nombre del Producto:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
-
+        <label for="codigo">Codigo del Producto:</label>
+        <input type="text" id="codigo" name="codigo" required><br><br>
         <label for="cantidad">Cantidad:</label><br>
         <input type="number" id="cantidad" name="cantidad" required><br><br>
         <select name="categoria" required>
@@ -94,7 +96,7 @@ $num_rows = $result->num_rows;
         <img id="imagen-preview" src="#" alt="Vista Previa de la Foto" style="display: none;"><br><br>
 
         <button type="submit">Guardar Datos</button>
-        <button onclick="history.back()">Volver</button>
+        <button onclick="history.back(-1)">Volver</button>
     </form>
     
 
@@ -103,6 +105,7 @@ $num_rows = $result->num_rows;
         <thead>
             <tr>
                 <th>Foto</th>
+                <th>Codigo del Producto</th>
                 <th>Nombre Producto</th>
                 <th>Cantidad</th>
                 <th>Sumar</th>
@@ -118,6 +121,7 @@ $num_rows = $result->num_rows;
                     ?>
                     <tr>
                         <td><img height="100px" src="data:image/jpeg;base64,<?php echo base64_encode($data['imagen']); ?>" alt="Producto"></td>
+                        <td><?php echo $data['codigo']; ?></td>
                         <td><?php echo $data['nombre']; ?></td>
                         <td id="cantidad_<?php echo $data['id']; ?>"><?php echo $data['cantidad']; ?></td>
                         <td><a href='agregar.php?id=<?php echo $data['id']; ?>'>Agregar Stock</a></td>

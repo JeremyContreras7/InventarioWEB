@@ -73,6 +73,7 @@ else
 $nombre = $_POST["nombre"];
 $cantidad = $_POST["cantidad"];
 $categoria = $_POST["categoria"];
+$codigo = $_POST["codigo"];
 
 // Verificar si se ha subido un archivo
 if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {
@@ -96,7 +97,7 @@ if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {
         echo "<script>alert('El producto ya está registrado.'); window.location='/Vista/IngresarProductos.php';</script>";
     } else {
         // El producto no existe, proceder con la inserción
-        $queryInsertarProducto = "INSERT INTO productos (nombre, cantidad, imagen, categoria) VALUES ('$nombre', '$cantidad', '$imagen', '$categoria')";
+        $queryInsertarProducto = "INSERT INTO productos (nombre,codigo, cantidad, imagen, categoria) VALUES ('$nombre', '$codigo', '$cantidad', '$imagen', '$categoria')";
         if (mysqli_query($konexta, $queryInsertarProducto)) {
             echo "<script>alert('Producto registrado correctamente.'); window.location='/Vista/IngresarProductos.php';</script>";
         } else {

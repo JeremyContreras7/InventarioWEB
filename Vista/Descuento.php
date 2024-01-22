@@ -49,7 +49,7 @@
                 ?>
                 <form method="POST" action="../procesar_venta.php" >
                     <input type="hidden" name="id" value="<?php echo $productoId; ?>">
-                    <input type="hidden" name="nombre_usuario" value="<?php echo $_SESSION['nombredelusuario']; ?>">
+                    <input type="hidden" name="nombre_usuario" value="<?php echo $_SESSION['nombre']; ?>">
                     <br><br>
                     <label for="cantidad_vendida">Cantidad Vendida:</label>
                     <input type="number" id="cantidad_vendida" name="cantidad_vendida" required>
@@ -62,7 +62,7 @@
                ?> 
                 <form method="POST" action="../procesar_venta.php" >
                     <input type="hidden" name="id" value="<?php echo $productoId; ?>">
-                    <input type="hidden" name="nombre_usuario" value="<?php echo $_SESSION['nombredelusuario']; ?>">
+                    <input type="hidden" name="nombre_usuario" value="<?php echo $_SESSION['nombre']; ?>">
                     <br><br>
                     <label for="cantidad_vendida">Cantidad Vendida:</label>
                     <input type="number" id="cantidad_vendida" name="cantidad_vendida" required>
@@ -90,12 +90,13 @@
 
     if ($resultadoHistorial->num_rows > 0) {
         echo "<table border='1'>";
-        echo "<thead><tr><th>ID</th><th>ID Producto</th><th>Cantidad Vendida</th><th>Nombre de Usuario</th><th>Fecha</th></tr></thead>";
+        echo "<thead><tr><th>ID</th><th>ID Producto</th><th>Nombre Producto</th><th>Cantidad Descontada</th><th>Nombre de Usuario</th><th>Fecha</th></tr></thead>";
         echo "<tbody>";
         while ($venta = $resultadoHistorial->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $venta['id'] . "</td>";
             echo "<td>" . $venta['producto_id'] . "</td>";
+            echo "<td>" . $producto['nombre'] . "</td>";
             echo "<td>" . $venta['cantidad_vendida'] . "</td>";
             echo "<td>" . $venta['nombre_usuario'] . "</td>";
             echo "<td>" . $venta['fecha_venta'] . "</td>";
